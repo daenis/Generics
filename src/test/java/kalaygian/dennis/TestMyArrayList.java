@@ -53,6 +53,49 @@ public class TestMyArrayList {
         // This will never be reached :(
     }
 
+    // get(int)
+    @Test
+    public void testGet(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
+        String element1 = "This is the element at index zero";
+        String element2 = "This is the element at index one";
+        myArrayList.set(0, element1);
+        myArrayList.set(1, element2);
+        // When
+        String returnedElement = myArrayList.get(1);
+        // Then
+        Assert.assertEquals("Checking to see if the correct element was retrieved", element2, returnedElement);
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testGet_indexOutOfBoundsExceptionLow(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
+        String element1 = "This is the element at index zero";
+        String element2 = "This is the element at index one";
+        myArrayList.set(0, element1);
+        myArrayList.set(1, element2);
+        // When
+        String returnedElement = myArrayList.get(-1);
+        // Then
+        // This statement will never be reached mwahahahahaha
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testGet_indexOutOfBoundsExceptionHigh(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
+        String element1 = "This is the element at index zero";
+        String element2 = "This is the element at index one";
+        myArrayList.set(0, element1);
+        myArrayList.set(1, element2);
+        // When
+        String returnedElement = myArrayList.get(300);
+        // Then
+        // This statement will never be reached mwahahahahaha
+    }
+
     // add(e)
     @Test
     public void testAddElement_elementAdded(){
@@ -159,7 +202,6 @@ public class TestMyArrayList {
         // Then
         Assert.assertEquals("Checking to see if the element caused an appropriate shift", element3, myArrayList.get(2));
     }
-
 
 //    + remove()
 //    + clear()
