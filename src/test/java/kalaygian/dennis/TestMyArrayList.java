@@ -1,6 +1,7 @@
 package kalaygian.dennis;
 
 import com.sun.javaws.exceptions.InvalidArgumentException;
+import com.sun.source.tree.AssertTree;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -236,44 +237,125 @@ public class TestMyArrayList {
     @Test
     public void testRemoveObjectByIndex(){
         // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
+        String element1 = "This is the first element";
+        String element2 = "This is the second element";
+        String element3 = "This is the third element";
+        myArrayList.set(0, element1);
+        myArrayList.set(1, element2);
+        myArrayList.set(2, element3);
+        String expectedObject = element2;
         // When
+        String returnedObject = myArrayList.remove(1);
         // Then
+        Assert.assertEquals("Checking to see if the correct object was removed", expectedObject, returnedObject);
+    }
+
+    @Test
+    public void testRemoveObjectByIndex_arrayIsSmaller(){
+        // Given
+        MyArrayList<Integer> myArrayList = new MyArrayList<Integer>(3);
+        myArrayList.set(0, 1);
+        myArrayList.set(1, 2);
+        myArrayList.set(2, 3);
+        int expectedSize = 2;
+        // When
+        Integer removedObject = myArrayList.remove(0);
+        // Then
+        Assert.assertEquals("Checking to see if the array decreased in size", expectedSize, myArrayList.size());
+    }
+
+    @Test ()
+    public void testRemoveObjectByIndex_differentiatesPrimitivesFromObjects(){
+        // Given
+        MyArrayList<Integer> myArrayList = new MyArrayList<Integer>(3);
+        myArrayList.set(0, 1);
+        myArrayList.set(1, 2);
+        myArrayList.set(2, 3);
+        Integer expectedInteger = 2;
+        // When
+        Integer returnInteger = myArrayList.remove(1);
+        // Then
+        Assert.assertEquals("Checking to see if the correct Integer was removed", expectedInteger, returnInteger);
     }
 
     @Test (expected = IndexOutOfBoundsException.class)
-    public void testRemoveObjectByIndex_indexOutOfBoundsException(){
+    public void testRemoveObjectByIndex_indexOutOfBoundsExceptionLow(){
         // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
         // When
+        myArrayList.remove(300);
         // Then
-    }
-
-    @Test (expected = InvalidArgumentException.class)
-    public void testRemoveObjectByIndex_invalidArgumentException(){
-        // Given
-        // When
-        // Then
+        // This statement cannot be reached!
     }
 
     // remove(Object)
     @Test
     public void testRemoveObjectByObject(){
         // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
+        myArrayList.set(0, "This is the first element");
+        myArrayList.set(1, "This is the second element");
+        boolean expectedValue = true;
         // When
+        boolean returnValue = myArrayList.remove("This is the first element");
         // Then
+        Assert.assertEquals("Checking to see if the correct boolean was returned", expectedValue, returnValue);
+    }
+
+    @Test
+    public void testRemoveObjectByObject_listSizeShrinks(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
+        myArrayList.set(0, "This is the first element");
+        myArrayList.set(1, "This is the second element");
+        int expectedSize = 1;
+        // When
+        boolean returnValue = myArrayList.remove("This is the second element");
+        // Then
+        Assert.assertEquals("Checking to see if the list size shrank", expectedSize, myArrayList.size());
     }
 
     @Test
     public void testRemoveObjectByObject_objectNotInList(){
         // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
+        myArrayList.set(0, "This is the first element");
+        myArrayList.set(1, "This is the second element");
+        boolean expectedValue = false;
         // When
+        boolean returnValue = myArrayList.remove("This element is not in the list");
         // Then
+        Assert.assertEquals("Checking to see if the correct boolean was returned", expectedValue, returnValue);
     }
 
     @Test
     public void testRemoveObjectByObject_checkIfFirstOccurrence(){
         // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
+        myArrayList.set(0, "This is an element");
+        myArrayList.set(1, "This is also an element");
+        myArrayList.set(2, "This is an element");
+        String expectedValue = "This is an element";
         // When
+        boolean returnValue = myArrayList.remove("This is an element");
         // Then
+        Assert.assertEquals("Checking to see if the second value of the removed element exists", expectedValue, myArrayList.get(1));
+    }
+
+    @Test ()
+    public void testRemoveObjectByObject_differentiatesPrimitivesFromObjects(){
+        // Given
+        MyArrayList<Integer> myArrayList = new MyArrayList<Integer>(3);
+        myArrayList.set(0, 1);
+        myArrayList.set(1, 2);
+        myArrayList.set(2, 3);
+        Integer objectToRemove = 2;
+        boolean expectedResult = true;
+        // When
+        boolean returnResult = myArrayList.remove(objectToRemove);
+        // Then
+        Assert.assertEquals("Checking to see if the Integer was removed", expectedResult, returnResult);
     }
 //    + clear()
 //    + isEmpty(): boolean
