@@ -18,7 +18,11 @@ public class MyArrayList<E> {
         myArray = (E[]) new Object[initialSize];
     }
 
-//    + add(E)
+    public E[] getMyArray() {
+        return myArray;
+    }
+
+    //    + add(E)
 //    + add(E, int)
 //    + get(): E
 //    + set(E)
