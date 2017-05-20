@@ -1,5 +1,6 @@
 package kalaygian.dennis;
 
+import com.sun.javaws.exceptions.InvalidArgumentException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -85,13 +86,29 @@ public class TestMyArrayList {
     @Test (expected = IndexOutOfBoundsException.class)
     public void testGet_indexOutOfBoundsExceptionHigh(){
         // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
+        String element1 = "This is the element at index zero";
+        String element2 = "This is the element at index one";
+        String element3 = "This is the element at index two";
+        myArrayList.set(0, element1);
+        myArrayList.set(1, element2);
+        myArrayList.set(2, element3);
+        // When
+        String returnedElement = myArrayList.get(300);
+        // Then
+        // This statement will never be reached mwahahahahaha
+    }
+
+    @Test (expected = InvalidArgumentException.class)
+    public void testGet_invalidArgumentException(){
+        // Given
         MyArrayList<String> myArrayList = new MyArrayList<String>(2);
         String element1 = "This is the element at index zero";
         String element2 = "This is the element at index one";
         myArrayList.set(0, element1);
         myArrayList.set(1, element2);
         // When
-        String returnedElement = myArrayList.get(300);
+        String returnedElement = myArrayList.get("This is gonna throw an error");
         // Then
         // This statement will never be reached mwahahahahaha
     }
@@ -203,13 +220,67 @@ public class TestMyArrayList {
         Assert.assertEquals("Checking to see if the element caused an appropriate shift", element3, myArrayList.get(2));
     }
 
-//    + remove()
+    // size()
+    @Test
+    public void testSize(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(10);
+        int expectedSize = 10;
+        // When
+        int actualSize = myArrayList.size();
+        // Then
+        Assert.assertEquals("Checking to see if the correct value is returned", expectedSize, actualSize);
+    }
+
+    // remove(int)
+    @Test
+    public void testRemoveObjectByIndex(){
+        // Given
+        // When
+        // Then
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testRemoveObjectByIndex_indexOutOfBoundsException(){
+        // Given
+        // When
+        // Then
+    }
+
+    @Test (expected = InvalidArgumentException.class)
+    public void testRemoveObjectByIndex_invalidArgumentException(){
+        // Given
+        // When
+        // Then
+    }
+
+    // remove(Object)
+    @Test
+    public void testRemoveObjectByObject(){
+        // Given
+        // When
+        // Then
+    }
+
+    @Test
+    public void testRemoveObjectByObject_objectNotInList(){
+        // Given
+        // When
+        // Then
+    }
+
+    @Test
+    public void testRemoveObjectByObject_checkIfFirstOccurrence(){
+        // Given
+        // When
+        // Then
+    }
 //    + clear()
 //    + isEmpty(): boolean
 //    + contains(Object)
 //    + remove(int): E
 //    + remove(Object): boolean
-//    + size():int
+
 //    + addAll(Collection<? extends E>)
 
 }
