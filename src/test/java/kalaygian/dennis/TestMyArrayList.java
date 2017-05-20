@@ -8,6 +8,51 @@ import org.junit.Test;
  */
 public class TestMyArrayList {
 
+    // set(int, E)
+    @Test
+    public void testSet(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
+        String expectedElement = "This is the element stored in index 1";
+        // When
+        myArrayList.set(1, expectedElement);
+        // Then
+        Assert.assertEquals("Checking to see if the first element was set to the correct value", expectedElement, myArrayList.get(1));
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testSet_indexOutOfBoundsLow() {
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
+        String expectedElement = "This is the element stored in index -1";
+        // When
+        myArrayList.set(-1, expectedElement);
+        // Then
+        // This will never be reached :(
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testSet_indexOutOfBoundsHigh() {
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
+        String expectedElement = "This is the element stored in index 300";
+        // When
+        myArrayList.set(300, expectedElement);
+        // Then
+        // This will never be reached :(
+    }
+
+    @Test (expected = ClassCastException.class)
+    public void testSet_classCastException() {
+        // Given
+        MyArrayList<Integer> myArrayList = new MyArrayList<Integer>(2);
+        String errorElement = "I'm going to throw an error yay!";
+        // When
+        myArrayList.set(1, errorElement);
+        // Then
+        // This will never be reached :(
+    }
+
     // add(e)
     @Test
     public void testAddElement_elementAdded(){
@@ -17,7 +62,7 @@ public class TestMyArrayList {
         // When
         myArrayList.add("I hope that this works");
         // Then
-        Assert.assertEquals("Checking to see if the method added an element", expectedSize, myArrayList.getMyArray().length);
+        Assert.assertEquals("Checking to see if the method added an element", expectedSize, myArrayList.size());
     }
 
     @Test
@@ -45,7 +90,7 @@ public class TestMyArrayList {
     }
 
     @Test (expected = ClassCastException.class)
-    public void testAddElement_wrongTypeOfElementAdded(){
+    public void testAddElement_classCastException(){
         // Given
         MyArrayList<Integer> myArrayList = new MyArrayList<Integer>();
         // When
@@ -104,19 +149,15 @@ public class TestMyArrayList {
     public void testAddElementByIndex_addedToExistingElement(){
         // Given
         MyArrayList<String> myArrayList = new MyArrayList<String>(2);
-        MyArrayList<String> expectedArrayList = new MyArrayList<String>(3);
         String element1 = "This is the first element";
         String element2 = "This is the second element";
         String element3 = "This is the third element";
         myArrayList.set(0, element1);
         myArrayList.set(1, element3);
-        expectedArrayList.set(0, element1);
-        expectedArrayList.set(1, element2);
-        expectedArrayList.set(2, element3);
         // When
         myArrayList.add(1, element2);
         // Then
-        Assert.assertEquals("Checking to see if the element caused an appropriate shift", expectedArrayList.get(2), myArrayList.get(2));
+        Assert.assertEquals("Checking to see if the element caused an appropriate shift", element3, myArrayList.get(2));
     }
 
 
