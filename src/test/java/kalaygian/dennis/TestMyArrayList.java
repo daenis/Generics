@@ -1,7 +1,6 @@
 package kalaygian.dennis;
 
 import com.sun.javaws.exceptions.InvalidArgumentException;
-import com.sun.source.tree.AssertTree;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -357,11 +356,22 @@ public class TestMyArrayList {
         // Then
         Assert.assertEquals("Checking to see if the Integer was removed", expectedResult, returnResult);
     }
-//    + clear()
+
+    // clear()
+    @Test
+    public void testClear(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
+        myArrayList.set(0, "This is the first element");
+        myArrayList.set(1, "This is the second element");
+        myArrayList.set(2, "This is the third element");
+        // When
+        // Then
+    }
+
 //    + isEmpty(): boolean
 //    + contains(Object)
-//    + remove(int): E
-//    + remove(Object): boolean
+
 
 //    + addAll(Collection<? extends E>)
 
