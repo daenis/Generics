@@ -1,13 +1,23 @@
 package kalaygian.dennis;
 
+import java.lang.reflect.*;
+
+
 /**
  * Created by denniskalaygian on 5/19/17.
  */
-public class MyArrayList {
-    // - myArray: E
+public class MyArrayList<E> {
 
-//    + _MyArrayList()
-//    + _MyArrayList(int)
+    private E[] myArray;
+
+    public MyArrayList(){
+        myArray = (E[]) new Object[0];
+    }
+
+    public MyArrayList(int initialSize){
+        myArray = (E[]) new Object[initialSize];
+    }
+
 //    + add(E)
 //    + add(E, int)
 //    + get(): E
