@@ -83,6 +83,19 @@ public class MyArrayList<E> {
         return returnedElement;
     }
 
+    public boolean remove(Object element){
+        for(int index = 0; index < size(); index++){
+            if(element.equals(get(index))) return nullifyIndex(index);
+        }
+        return false;
+    }
+
+    private boolean nullifyIndex(int index){
+        set(index, null);
+        return true;
+    }
+
+
 
 
 }

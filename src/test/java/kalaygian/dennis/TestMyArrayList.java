@@ -263,7 +263,7 @@ public class TestMyArrayList {
         // When
         Integer removedObject = myArrayList.remove(0);
         // Then
-        Assert.assertEquals("Checking to see if the array decreased in size", expected, myArrayList.get(0));
+        Assert.assertEquals("Checking to see if the element was filled with null", expected, myArrayList.get(0));
     }
 
     @Test ()
@@ -289,75 +289,75 @@ public class TestMyArrayList {
         // Then
         // This statement cannot be reached!
     }
-//
-//    // remove(Object)
-//    @Test
-//    public void testRemoveObjectByObject(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
-//        myArrayList.set(0, "This is the first element");
-//        myArrayList.set(1, "This is the second element");
-//        boolean expected = true;
-//        // When
-//        boolean returnValue = myArrayList.remove("This is the first element");
-//        // Then
-//        Assert.assertEquals("Checking to see if the correct boolean was returned", expected, returnValue);
-//    }
-//
-//    @Test
-//    public void testRemoveObjectByObject_listSizeShrinks(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
-//        myArrayList.set(0, "This is the first element");
-//        myArrayList.set(1, "This is the second element");
-//        int expected = 1;
-//        // When
-//        boolean returnValue = myArrayList.remove("This is the second element");
-//        // Then
-//        Assert.assertEquals("Checking to see if the list size shrank", expected, myArrayList.size());
-//    }
-//
-//    @Test
-//    public void testRemoveObjectByObject_objectNotInList(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
-//        myArrayList.set(0, "This is the first element");
-//        myArrayList.set(1, "This is the second element");
-//        boolean expected = false;
-//        // When
-//        boolean returnValue = myArrayList.remove("This element is not in the list");
-//        // Then
-//        Assert.assertEquals("Checking to see if the correct boolean was returned", expected, returnValue);
-//    }
-//
-//    @Test
-//    public void testRemoveObjectByObject_checkIfFirstOccurrence(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
-//        myArrayList.set(0, "This is an element");
-//        myArrayList.set(1, "This is also an element");
-//        myArrayList.set(2, "This is an element");
-//        String expected = "This is an element";
-//        // When
-//        boolean returnValue = myArrayList.remove("This is an element");
-//        // Then
-//        Assert.assertEquals("Checking to see if the second value of the removed element exists", expected, myArrayList.get(1));
-//    }
-//
-//    @Test ()
-//    public void testRemoveObjectByObject_differentiatesPrimitivesFromObjects(){
-//        // Given
-//        MyArrayList<Integer> myArrayList = new MyArrayList<Integer>(3);
-//        myArrayList.set(0, 1);
-//        myArrayList.set(1, 2);
-//        myArrayList.set(2, 3);
-//        Integer objectToRemove = 2;
-//        boolean expected = true;
-//        // When
-//        boolean returnResult = myArrayList.remove(objectToRemove);
-//        // Then
-//        Assert.assertEquals("Checking to see if the Integer was removed", expected, returnResult);
-//    }
+
+    // remove(Object)
+    @Test
+    public void testRemoveObjectByObject(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
+        myArrayList.set(0, "This is the first element");
+        myArrayList.set(1, "This is the second element");
+        boolean expected = true;
+        // When
+        boolean returnValue = myArrayList.remove("This is the first element");
+        // Then
+        Assert.assertEquals("Checking to see if the correct boolean was returned", expected, returnValue);
+    }
+
+    @Test
+    public void testRemoveObjectByObject_elementIsNull(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
+        myArrayList.set(0, "This is the first element");
+        myArrayList.set(1, "This is the second element");
+        String expected = null;
+        // When
+        boolean returnValue = myArrayList.remove("This is the second element");
+        // Then
+        Assert.assertEquals("Checking to see if the element was filled with null", expected, myArrayList.get(1));
+    }
+
+    @Test
+    public void testRemoveObjectByObject_objectNotInList(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
+        myArrayList.set(0, "This is the first element");
+        myArrayList.set(1, "This is the second element");
+        boolean expected = false;
+        // When
+        boolean returnValue = myArrayList.remove("This element is not in the list");
+        // Then
+        Assert.assertEquals("Checking to see if the correct boolean was returned", expected, returnValue);
+    }
+
+    @Test
+    public void testRemoveObjectByObject_checkIfFirstOccurrence(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
+        myArrayList.set(0, "This is an element");
+        myArrayList.set(1, "This is also an element");
+        myArrayList.set(2, "This is an element");
+        String expected = "This is an element";
+        // When
+        boolean returnValue = myArrayList.remove("This is an element");
+        // Then
+        Assert.assertEquals("Checking to see if the second value of the removed element exists", expected, myArrayList.get(2));
+    }
+
+    @Test ()
+    public void testRemoveObjectByObject_differentiatesPrimitivesFromObjects(){
+        // Given
+        MyArrayList<Integer> myArrayList = new MyArrayList<Integer>(3);
+        myArrayList.set(0, 1);
+        myArrayList.set(1, 2);
+        myArrayList.set(2, 3);
+        Integer objectToRemove = 2;
+        boolean expected = true;
+        // When
+        boolean returnResult = myArrayList.remove(objectToRemove);
+        // Then
+        Assert.assertEquals("Checking to see if the Integer was removed", expected, returnResult);
+    }
 //
 //    // clear()
 //    @Test
