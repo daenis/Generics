@@ -17,22 +17,6 @@ public class MyArrayList<E> {
     public MyArrayList(int initialSize){
         myArray = (E[]) new Object[initialSize];
     }
-
-    public E[] getMyArray() {
-        return myArray;
-    }
-
-    //    + add(E)
-//    + add(E, int)
-//    + get(): E
-//    + set(E)
-//    + remove()
-//    + clear()
-//    + isEmpty(): boolean
-//    + contains(Object)
-//    + remove(int): E
-//    + remove(Object): boolean
-//    + size():int
-//    + addAll(Collection<? extends E>)
+    
 
 }
