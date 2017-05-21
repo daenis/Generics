@@ -233,62 +233,62 @@ public class TestMyArrayList {
     }
 
 
-//
-//    // remove(int)
-//    @Test
-//    public void testRemoveObjectByIndex(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
-//        String element1 = "This is the first element";
-//        String element2 = "This is the second element";
-//        String element3 = "This is the third element";
-//        myArrayList.set(0, element1);
-//        myArrayList.set(1, element2);
-//        myArrayList.set(2, element3);
-//        String expected = element2;
-//        // When
-//        String returnValue = myArrayList.remove(1);
-//        // Then
-//        Assert.assertEquals("Checking to see if the correct object was removed", expected, returnValue);
-//    }
-//
-//    @Test
-//    public void testRemoveObjectByIndex_arrayIsSmaller(){
-//        // Given
-//        MyArrayList<Integer> myArrayList = new MyArrayList<Integer>(3);
-//        myArrayList.set(0, 1);
-//        myArrayList.set(1, 2);
-//        myArrayList.set(2, 3);
-//        int expected = 2;
-//        // When
-//        Integer removedObject = myArrayList.remove(0);
-//        // Then
-//        Assert.assertEquals("Checking to see if the array decreased in size", expected, myArrayList.size());
-//    }
-//
-//    @Test ()
-//    public void testRemoveObjectByIndex_differentiatesPrimitivesFromObjects(){
-//        // Given
-//        MyArrayList<Integer> myArrayList = new MyArrayList<Integer>(3);
-//        myArrayList.set(0, 1);
-//        myArrayList.set(1, 2);
-//        myArrayList.set(2, 3);
-//        Integer expected = 2;
-//        // When
-//        Integer returnInteger = myArrayList.remove(1);
-//        // Then
-//        Assert.assertEquals("Checking to see if the correct Integer was removed", expected, returnInteger);
-//    }
-//
-//    @Test (expected = IndexOutOfBoundsException.class)
-//    public void testRemoveObjectByIndex_indexOutOfBoundsExceptionLow(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
-//        // When
-//        myArrayList.remove(300);
-//        // Then
-//        // This statement cannot be reached!
-//    }
+
+    // remove(int)
+    @Test
+    public void testRemoveObjectByIndex(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
+        String element1 = "This is the first element";
+        String element2 = "This is the second element";
+        String element3 = "This is the third element";
+        myArrayList.set(0, element1);
+        myArrayList.set(1, element2);
+        myArrayList.set(2, element3);
+        String expected = element2;
+        // When
+        String returnValue = myArrayList.remove(1);
+        // Then
+        Assert.assertEquals("Checking to see if the correct object was removed", expected, returnValue);
+    }
+
+    @Test
+    public void testRemoveObjectByIndex_elementIsNull(){
+        // Given
+        MyArrayList<Integer> myArrayList = new MyArrayList<Integer>(3);
+        myArrayList.set(0, 1);
+        myArrayList.set(1, 2);
+        myArrayList.set(2, 3);
+        Integer expected = null;
+        // When
+        Integer removedObject = myArrayList.remove(0);
+        // Then
+        Assert.assertEquals("Checking to see if the array decreased in size", expected, myArrayList.get(0));
+    }
+
+    @Test ()
+    public void testRemoveObjectByIndex_differentiatesPrimitivesFromObjects(){
+        // Given
+        MyArrayList<Integer> myArrayList = new MyArrayList<Integer>(3);
+        myArrayList.set(0, 1);
+        myArrayList.set(1, 2);
+        myArrayList.set(2, 3);
+        Integer expected = 2;
+        // When
+        Integer returnInteger = myArrayList.remove(1);
+        // Then
+        Assert.assertEquals("Checking to see if the correct Integer was removed", expected, returnInteger);
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testRemoveObjectByIndex_indexOutOfBoundsExceptionLow(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
+        // When
+        myArrayList.remove(300);
+        // Then
+        // This statement cannot be reached!
+    }
 //
 //    // remove(Object)
 //    @Test

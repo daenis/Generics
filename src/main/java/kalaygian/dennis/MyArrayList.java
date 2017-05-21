@@ -77,6 +77,12 @@ public class MyArrayList<E> {
         return newArray;
     }
 
+    public E remove(int index){
+        E returnedElement = get(index);
+        set(index, null);
+        return returnedElement;
+    }
+
 
 
 }
