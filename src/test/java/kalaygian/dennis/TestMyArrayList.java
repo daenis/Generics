@@ -442,6 +442,5 @@ public class TestMyArrayList {
         // Then
         Assert.assertEquals("Checking to see if the correct value is returned for no match", expected, returnValue);
     }
-//
-//
+
 }
