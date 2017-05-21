@@ -14,20 +14,20 @@ public class TestMyArrayList {
     public void testSet(){
         // Given
         MyArrayList<String> myArrayList = new MyArrayList<String>(2);
-        String expectedElement = "This is the element stored in index 1";
+        String expected = "This is the element stored in index 1";
         // When
-        myArrayList.set(1, expectedElement);
+        myArrayList.set(1, expected);
         // Then
-        Assert.assertEquals("Checking to see if the first element was set to the correct value", expectedElement, myArrayList.get(1));
+        Assert.assertEquals("Checking to see if the first element was set to the correct value", expected, myArrayList.get(1));
     }
 
     @Test (expected = IndexOutOfBoundsException.class)
     public void testSet_indexOutOfBoundsLow() {
         // Given
         MyArrayList<String> myArrayList = new MyArrayList<String>(2);
-        String expectedElement = "This is the element stored in index -1";
+        String expected = "This is the element stored in index -1";
         // When
-        myArrayList.set(-1, expectedElement);
+        myArrayList.set(-1, expected);
         // Then
         // This will never be reached :(
     }
@@ -36,9 +36,9 @@ public class TestMyArrayList {
     public void testSet_indexOutOfBoundsHigh() {
         // Given
         MyArrayList<String> myArrayList = new MyArrayList<String>(2);
-        String expectedElement = "This is the element stored in index 300";
+        String expected = "This is the element stored in index 300";
         // When
-        myArrayList.set(300, expectedElement);
+        myArrayList.set(300, expected);
         // Then
         // This will never be reached :(
     }
@@ -64,9 +64,9 @@ public class TestMyArrayList {
         myArrayList.set(0, element1);
         myArrayList.set(1, element2);
         // When
-        String returnedElement = myArrayList.get(1);
+        String returnValue = myArrayList.get(1);
         // Then
-        Assert.assertEquals("Checking to see if the correct element was retrieved", element2, returnedElement);
+        Assert.assertEquals("Checking to see if the correct element was retrieved", element2, returnValue);
     }
 
     @Test (expected = IndexOutOfBoundsException.class)
@@ -78,7 +78,7 @@ public class TestMyArrayList {
         myArrayList.set(0, element1);
         myArrayList.set(1, element2);
         // When
-        String returnedElement = myArrayList.get(-1);
+        String returnValue = myArrayList.get(-1);
         // Then
         // This statement will never be reached mwahahahahaha
     }
@@ -94,7 +94,7 @@ public class TestMyArrayList {
         myArrayList.set(1, element2);
         myArrayList.set(2, element3);
         // When
-        String returnedElement = myArrayList.get(300);
+        String returnValue = myArrayList.get(300);
         // Then
         // This statement will never be reached mwahahahahaha
     }
@@ -118,22 +118,22 @@ public class TestMyArrayList {
     public void testAddElement_elementAdded(){
         // Given
         MyArrayList<String> myArrayList = new MyArrayList<String>();
-        int expectedSize = 1;
+        int expected = 1;
         // When
         myArrayList.add("I hope that this works");
         // Then
-        Assert.assertEquals("Checking to see if the method added an element", expectedSize, myArrayList.size());
+        Assert.assertEquals("Checking to see if the method added an element", expected, myArrayList.size());
     }
 
     @Test
     public void testAddElement_correctElementAdded(){
         // Given
         MyArrayList<String> myArrayList = new MyArrayList<String>();
-        String expectedElement = "I hope that this works";
+        String expected = "I hope that this works";
         // When
-        myArrayList.add(expectedElement);
+        myArrayList.add(expected);
         // Then
-        Assert.assertEquals("Checking to see if the method added an element", expectedElement, myArrayList.get(0));
+        Assert.assertEquals("Checking to see if the method added an element", expected, myArrayList.get(0));
     }
 
     @Test
@@ -142,11 +142,11 @@ public class TestMyArrayList {
         MyArrayList<String> myArrayList = new MyArrayList<String>(2);
         myArrayList.set(0, "This is the first element");
         myArrayList.set(1, "This is the second element");
-        String expectedElement = "This is the third element";
+        String expected = "This is the third element";
         // When
-        myArrayList.add(expectedElement);
+        myArrayList.add(expected);
         // Then
-        Assert.assertEquals("Checking to see if the method added an element to the end", expectedElement, myArrayList.get(2));
+        Assert.assertEquals("Checking to see if the method added an element to the end", expected, myArrayList.get(2));
     }
 
     @Test (expected = ClassCastException.class)
@@ -164,22 +164,22 @@ public class TestMyArrayList {
     public void testAddElementByIndex_elementAdded(){
         // Given
         MyArrayList<String> myArrayList = new MyArrayList<String>(3);
-        String expectedElement = "This is the value of index one";
+        String expected = "This is the value of index one";
         // When
-        myArrayList.add(1, expectedElement);
+        myArrayList.add(1, expected);
         // Then
-        Assert.assertEquals("Checking to see if the correct element was added to the correct index", expectedElement, myArrayList.get(1));
+        Assert.assertEquals("Checking to see if the correct element was added to the correct index", expected, myArrayList.get(1));
     }
 
     @Test
     public void testAddElementByIndex_elementAddedBeyondBounds(){
         // Given
         MyArrayList<String> myArrayList = new MyArrayList<String>(3);
-        String expectedElement = "This is the value of index five";
+        String expected = "This is the value of index five";
         // When
-        myArrayList.add(5, expectedElement);
+        myArrayList.add(5, expected);
         // Then
-        Assert.assertEquals("Checking to see if the element was added appropriately", expectedElement, myArrayList.get(5));
+        Assert.assertEquals("Checking to see if the element was added appropriately", expected, myArrayList.get(5));
     }
 
     @Test
@@ -225,11 +225,11 @@ public class TestMyArrayList {
     public void testSize(){
         // Given
         MyArrayList<String> myArrayList = new MyArrayList<String>(10);
-        int expectedSize = 10;
+        int expected = 10;
         // When
-        int actualSize = myArrayList.size();
+        int returnValue = myArrayList.size();
         // Then
-        Assert.assertEquals("Checking to see if the correct value is returned", expectedSize, actualSize);
+        Assert.assertEquals("Checking to see if the correct value is returned regarding the size", expected, returnValue);
     }
 
     // remove(int)
@@ -243,11 +243,11 @@ public class TestMyArrayList {
         myArrayList.set(0, element1);
         myArrayList.set(1, element2);
         myArrayList.set(2, element3);
-        String expectedObject = element2;
+        String expected = element2;
         // When
-        String returnedObject = myArrayList.remove(1);
+        String returnValue = myArrayList.remove(1);
         // Then
-        Assert.assertEquals("Checking to see if the correct object was removed", expectedObject, returnedObject);
+        Assert.assertEquals("Checking to see if the correct object was removed", expected, returnValue);
     }
 
     @Test
@@ -257,11 +257,11 @@ public class TestMyArrayList {
         myArrayList.set(0, 1);
         myArrayList.set(1, 2);
         myArrayList.set(2, 3);
-        int expectedSize = 2;
+        int expected = 2;
         // When
         Integer removedObject = myArrayList.remove(0);
         // Then
-        Assert.assertEquals("Checking to see if the array decreased in size", expectedSize, myArrayList.size());
+        Assert.assertEquals("Checking to see if the array decreased in size", expected, myArrayList.size());
     }
 
     @Test ()
@@ -271,11 +271,11 @@ public class TestMyArrayList {
         myArrayList.set(0, 1);
         myArrayList.set(1, 2);
         myArrayList.set(2, 3);
-        Integer expectedInteger = 2;
+        Integer expected = 2;
         // When
         Integer returnInteger = myArrayList.remove(1);
         // Then
-        Assert.assertEquals("Checking to see if the correct Integer was removed", expectedInteger, returnInteger);
+        Assert.assertEquals("Checking to see if the correct Integer was removed", expected, returnInteger);
     }
 
     @Test (expected = IndexOutOfBoundsException.class)
@@ -295,11 +295,11 @@ public class TestMyArrayList {
         MyArrayList<String> myArrayList = new MyArrayList<String>(2);
         myArrayList.set(0, "This is the first element");
         myArrayList.set(1, "This is the second element");
-        boolean expectedValue = true;
+        boolean expected = true;
         // When
         boolean returnValue = myArrayList.remove("This is the first element");
         // Then
-        Assert.assertEquals("Checking to see if the correct boolean was returned", expectedValue, returnValue);
+        Assert.assertEquals("Checking to see if the correct boolean was returned", expected, returnValue);
     }
 
     @Test
@@ -308,11 +308,11 @@ public class TestMyArrayList {
         MyArrayList<String> myArrayList = new MyArrayList<String>(2);
         myArrayList.set(0, "This is the first element");
         myArrayList.set(1, "This is the second element");
-        int expectedSize = 1;
+        int expected = 1;
         // When
         boolean returnValue = myArrayList.remove("This is the second element");
         // Then
-        Assert.assertEquals("Checking to see if the list size shrank", expectedSize, myArrayList.size());
+        Assert.assertEquals("Checking to see if the list size shrank", expected, myArrayList.size());
     }
 
     @Test
@@ -321,11 +321,11 @@ public class TestMyArrayList {
         MyArrayList<String> myArrayList = new MyArrayList<String>(2);
         myArrayList.set(0, "This is the first element");
         myArrayList.set(1, "This is the second element");
-        boolean expectedValue = false;
+        boolean expected = false;
         // When
         boolean returnValue = myArrayList.remove("This element is not in the list");
         // Then
-        Assert.assertEquals("Checking to see if the correct boolean was returned", expectedValue, returnValue);
+        Assert.assertEquals("Checking to see if the correct boolean was returned", expected, returnValue);
     }
 
     @Test
@@ -335,11 +335,11 @@ public class TestMyArrayList {
         myArrayList.set(0, "This is an element");
         myArrayList.set(1, "This is also an element");
         myArrayList.set(2, "This is an element");
-        String expectedValue = "This is an element";
+        String expected = "This is an element";
         // When
         boolean returnValue = myArrayList.remove("This is an element");
         // Then
-        Assert.assertEquals("Checking to see if the second value of the removed element exists", expectedValue, myArrayList.get(1));
+        Assert.assertEquals("Checking to see if the second value of the removed element exists", expected, myArrayList.get(1));
     }
 
     @Test ()
@@ -350,11 +350,11 @@ public class TestMyArrayList {
         myArrayList.set(1, 2);
         myArrayList.set(2, 3);
         Integer objectToRemove = 2;
-        boolean expectedResult = true;
+        boolean expected = true;
         // When
         boolean returnResult = myArrayList.remove(objectToRemove);
         // Then
-        Assert.assertEquals("Checking to see if the Integer was removed", expectedResult, returnResult);
+        Assert.assertEquals("Checking to see if the Integer was removed", expected, returnResult);
     }
 
     // clear()
@@ -366,13 +366,68 @@ public class TestMyArrayList {
         myArrayList.set(1, "This is the second element");
         myArrayList.set(2, "This is the third element");
         // When
+        myArrayList.clear();
         // Then
+        for(int i = 0; i < myArrayList.size(); i++){
+            Assert.assertEquals("Checking to see if each item is null", null, myArrayList.get(i));
+        }
     }
 
-//    + isEmpty(): boolean
-//    + contains(Object)
+    // isEmpty()
+    @Test
+    public void testIsEmpty(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>();
+        boolean expected = true;
+        // When
+        boolean returnValue = myArrayList.isEmpty();
+        // Then
+        Assert.assertEquals("Checking to see if the correct value is returned for an empty list", expected, returnValue);
+    }
 
+    @Test
+    public void testIsEmpty_listIsNotEmpty(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(1);
+        myArrayList.set(0, "This is an element");
+        boolean expected = false;
+        // When
+        boolean returnValue = myArrayList.isEmpty();
+        // Then
+        Assert.assertEquals("Checking to see if the correct value is returned for a list that is not empty", expected, returnValue);
+    }
 
-//    + addAll(Collection<? extends E>)
+    //contains(Object)
+    @Test
+    public void testContains(){
+        // Given
+        MyArrayList<Integer> myArrayList = new MyArrayList<Integer>(2);
+        Integer element1 = 1;
+        Integer element2 = 2;
+        myArrayList.set(0, element1);
+        myArrayList.set(0, element2);
+        boolean expected = true;
+        // When
+        boolean returnValue = myArrayList.contains(element1);
+        // Then
+        Assert.assertEquals("Checking to see if the correct value is returned for a match", expected, returnValue);
+    }
+
+    @Test
+    public void testContains_false(){
+        // Given
+        MyArrayList<Integer> myArrayList = new MyArrayList<Integer>(2);
+        Integer element1 = 1;
+        Integer element2 = 2;
+        Integer element3 = 3;
+        myArrayList.set(0, element1);
+        myArrayList.set(0, element2);
+        boolean expected = false;
+        // When
+        boolean returnValue = myArrayList.contains(element3);
+        // Then
+        Assert.assertEquals("Checking to see if the correct value is returned for no match", expected, returnValue);
+    }
+
 
 }
