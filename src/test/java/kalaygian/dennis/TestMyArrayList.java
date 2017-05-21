@@ -1,48 +1,48 @@
-//package kalaygian.dennis;
-//
-//import com.sun.javaws.exceptions.InvalidArgumentException;
-//import org.junit.Assert;
-//import org.junit.Test;
-//
-///**
-// * Created by denniskalaygian on 5/19/17.
-// */
-//public class TestMyArrayList {
-//
-//    // set(int, E)
-//    @Test
-//    public void testSet(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
-//        String expected = "This is the element stored in index 1";
-//        // When
-//        myArrayList.set(1, expected);
-//        // Then
-//        Assert.assertEquals("Checking to see if the first element was set to the correct value", expected, myArrayList.get(1));
-//    }
-//
-//    @Test (expected = IndexOutOfBoundsException.class)
-//    public void testSet_indexOutOfBoundsLow() {
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
-//        String expected = "This is the element stored in index -1";
-//        // When
-//        myArrayList.set(-1, expected);
-//        // Then
-//        // This will never be reached :(
-//    }
-//
-//    @Test (expected = IndexOutOfBoundsException.class)
-//    public void testSet_indexOutOfBoundsHigh() {
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
-//        String expected = "This is the element stored in index 300";
-//        // When
-//        myArrayList.set(300, expected);
-//        // Then
-//        // This will never be reached :(
-//    }
-//
+package kalaygian.dennis;
+
+import com.sun.javaws.exceptions.InvalidArgumentException;
+import org.junit.Assert;
+import org.junit.Test;
+
+/**
+ * Created by denniskalaygian on 5/19/17.
+ */
+public class TestMyArrayList {
+
+    // set(int, E)
+    @Test
+    public void testSet(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
+        String expected = "This is the element stored in index 1";
+        // When
+        myArrayList.set(1, expected);
+        // Then
+        Assert.assertEquals("Checking to see if the first element was set to the correct value", expected, myArrayList.get(1));
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testSet_indexOutOfBoundsLow() {
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
+        String expected = "This is the element stored in index -1";
+        // When
+        myArrayList.set(-1, expected);
+        // Then
+        // This will never be reached :(
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testSet_indexOutOfBoundsHigh() {
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
+        String expected = "This is the element stored in index 300";
+        // When
+        myArrayList.set(300, expected);
+        // Then
+        // This will never be reached :(
+    }
+
 //    @Test (expected = ClassCastException.class)
 //    public void testSet_classCastException() {
 //        // Given
@@ -53,52 +53,52 @@
 //        // Then
 //        // This will never be reached :(
 //    }
-//
-//    // get(int)
-//    @Test
-//    public void testGet(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
-//        String element1 = "This is the element at index zero";
-//        String element2 = "This is the element at index one";
-//        myArrayList.set(0, element1);
-//        myArrayList.set(1, element2);
-//        // When
-//        String returnValue = myArrayList.get(1);
-//        // Then
-//        Assert.assertEquals("Checking to see if the correct element was retrieved", element2, returnValue);
-//    }
-//
-//    @Test (expected = IndexOutOfBoundsException.class)
-//    public void testGet_indexOutOfBoundsExceptionLow(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
-//        String element1 = "This is the element at index zero";
-//        String element2 = "This is the element at index one";
-//        myArrayList.set(0, element1);
-//        myArrayList.set(1, element2);
-//        // When
-//        String returnValue = myArrayList.get(-1);
-//        // Then
-//        // This statement will never be reached mwahahahahaha
-//    }
-//
-//    @Test (expected = IndexOutOfBoundsException.class)
-//    public void testGet_indexOutOfBoundsExceptionHigh(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
-//        String element1 = "This is the element at index zero";
-//        String element2 = "This is the element at index one";
-//        String element3 = "This is the element at index two";
-//        myArrayList.set(0, element1);
-//        myArrayList.set(1, element2);
-//        myArrayList.set(2, element3);
-//        // When
-//        String returnValue = myArrayList.get(300);
-//        // Then
-//        // This statement will never be reached mwahahahahaha
-//    }
-//
+
+    // get(int)
+    @Test
+    public void testGet(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
+        String element1 = "This is the element at index zero";
+        String element2 = "This is the element at index one";
+        myArrayList.set(0, element1);
+        myArrayList.set(1, element2);
+        // When
+        String returnValue = myArrayList.get(1);
+        // Then
+        Assert.assertEquals("Checking to see if the correct element was retrieved", element2, returnValue);
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testGet_indexOutOfBoundsExceptionLow(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
+        String element1 = "This is the element at index zero";
+        String element2 = "This is the element at index one";
+        myArrayList.set(0, element1);
+        myArrayList.set(1, element2);
+        // When
+        String returnValue = myArrayList.get(-1);
+        // Then
+        // This statement will never be reached mwahahahahaha
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testGet_indexOutOfBoundsExceptionHigh(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
+        String element1 = "This is the element at index zero";
+        String element2 = "This is the element at index one";
+        String element3 = "This is the element at index two";
+        myArrayList.set(0, element1);
+        myArrayList.set(1, element2);
+        myArrayList.set(2, element3);
+        // When
+        String returnValue = myArrayList.get(300);
+        // Then
+        // This statement will never be reached mwahahahahaha
+    }
+
 //    @Test (expected = InvalidArgumentException.class)
 //    public void testGet_invalidArgumentException(){
 //        // Given
@@ -430,4 +430,4 @@
 //    }
 //
 //
-//}
+}

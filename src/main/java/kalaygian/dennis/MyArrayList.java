@@ -17,6 +17,13 @@ public class MyArrayList<E> {
     public MyArrayList(int initialSize){
         myArray = (E[]) new Object[initialSize];
     }
-    
+
+    public void set(int index, E element) throws IndexOutOfBoundsException{
+        myArray[index] = element;
+    }
+
+    public E get(int index){
+        return myArray[index];
+    }
 
 }
