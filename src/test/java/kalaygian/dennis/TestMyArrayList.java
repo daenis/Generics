@@ -112,7 +112,7 @@ public class TestMyArrayList {
 //        // Then
 //        // This statement will never be reached mwahahahahaha
 //    }
-//
+
     // add(e)
     @Test
     public void testAddElement_elementAdded(){
@@ -170,68 +170,68 @@ public class TestMyArrayList {
         // Then
         Assert.assertEquals("Checking to see if the correct value is returned regarding the size", expected, returnValue);
     }
-//
-//    // add(int, e)
-//    @Test
-//    public void testAddElementByIndex_elementAdded(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
-//        String expected = "This is the value of index one";
-//        // When
-//        myArrayList.add(1, expected);
-//        // Then
-//        Assert.assertEquals("Checking to see if the correct element was added to the correct index", expected, myArrayList.get(1));
-//    }
-//
-//    @Test
-//    public void testAddElementByIndex_elementAddedBeyondBounds(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
-//        String expected = "This is the value of index five";
-//        // When
-//        myArrayList.add(5, expected);
-//        // Then
-//        Assert.assertEquals("Checking to see if the element was added appropriately", expected, myArrayList.get(5));
-//    }
-//
-//    @Test
-//    public void testAddElementByIndex_elementAddedBeyondBoundsNullPads(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
-//        String addedElement = "This is the value of index five";
-//        String padValue = null;
-//        // When
-//        myArrayList.add(5, addedElement);
-//        // Then
-//        Assert.assertEquals("Checking to see if the added element generated null padding", padValue, myArrayList.get(4));
-//    }
-//
-//    @Test (expected = IndexOutOfBoundsException.class)
-//    public void testAddElementByIndex_addedToNegativeIndex(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
-//        String addedElement = "This will throw an error";
-//        // When
-//        myArrayList.add(-1, addedElement);
-//        // Then
-//        // Doesn't matter!
-//    }
-//
-//    @Test
-//    public void testAddElementByIndex_addedToExistingElement(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
-//        String element1 = "This is the first element";
-//        String element2 = "This is the second element";
-//        String element3 = "This is the third element";
-//        myArrayList.set(0, element1);
-//        myArrayList.set(1, element3);
-//        // When
-//        myArrayList.add(1, element2);
-//        // Then
-//        Assert.assertEquals("Checking to see if the element caused an appropriate shift", element3, myArrayList.get(2));
-//    }
-//
+
+    // add(int, e)
+    @Test
+    public void testAddElementByIndex_elementAdded(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
+        String expected = "This is the value of index one";
+        // When
+        myArrayList.add(1, expected);
+        // Then
+        Assert.assertEquals("Checking to see if the correct element was added to the correct index", expected, myArrayList.get(1));
+    }
+
+    @Test
+    public void testAddElementByIndex_elementAddedBeyondBounds(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
+        String expected = "This is the value of index five";
+        // When
+        myArrayList.add(5, expected);
+        // Then
+        Assert.assertEquals("Checking to see if the element was added appropriately", expected, myArrayList.get(5));
+    }
+
+    @Test
+    public void testAddElementByIndex_elementAddedBeyondBoundsNullPads(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
+        String addedElement = "This is the value of index five";
+        String padValue = null;
+        // When
+        myArrayList.add(5, addedElement);
+        // Then
+        Assert.assertEquals("Checking to see if the added element generated null padding", padValue, myArrayList.get(4));
+    }
+
+    @Test (expected = IndexOutOfBoundsException.class)
+    public void testAddElementByIndex_addedToNegativeIndex(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
+        String addedElement = "This will throw an error";
+        // When
+        myArrayList.add(-1, addedElement);
+        // Then
+        // Doesn't matter!
+    }
+
+    @Test
+    public void testAddElementByIndex_addedToExistingElement(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
+        String element1 = "This is the first element";
+        String element2 = "This is the second element";
+        String element3 = "This is the third element";
+        myArrayList.set(0, element1);
+        myArrayList.set(1, element3);
+        // When
+        myArrayList.add(1, element2);
+        // Then
+        Assert.assertEquals("Checking to see if the element caused an appropriate shift", element3, myArrayList.get(2));
+    }
+
 
 //
 //    // remove(int)

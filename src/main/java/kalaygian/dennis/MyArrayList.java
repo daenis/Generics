@@ -28,13 +28,13 @@ public class MyArrayList<E> {
 
     public void add(E element){
         E[] newArray = growArrayBy(1);
-        newArray[myArray.length] = element;
+        newArray[size()] = element;
         myArray = newArray;
     }
 
     private E[] growArrayBy(int size){
-        E[] newArray = (E[]) new Object[myArray.length + size];
-        for(int index = 0; index < myArray.length; index++){
+        E[] newArray = (E[]) new Object[size() + size];
+        for(int index = 0; index < size(); index++){
             newArray[index] = myArray[index];
         }
         return newArray;
@@ -43,5 +43,40 @@ public class MyArrayList<E> {
     public int size(){
         return myArray.length;
     }
+
+    public void add(int index, E element){
+        if(index <= size() && get(index) == null)set(index, element);
+        else if(index <= size())myArray = insertElementAt(index, element);
+        else paddedInsert(index, element);
+    }
+
+    private void paddedInsert(int index, E element){
+        myArray = growArrayBy(index + 1);
+        myArray[index] = element;
+    }
+
+    private E[] insertElementAt(int index, E element){
+        E[] newArray = growArrayBy(1);
+        newArray = fillFirstPart(index, newArray);
+        newArray[index] = element;
+        newArray = fillSecondPart(index, newArray);
+        return newArray;
+    }
+
+    private E[] fillFirstPart(int index, E[] newArray){
+        for(int i = 0; i < index; i++){
+            newArray[i] = myArray[i];
+        }
+        return newArray;
+    }
+
+    private E[] fillSecondPart(int index, E[] newArray){
+        for(int i = index + 1; i < size() + 1; i++){
+            newArray[i] = myArray[i - 1];
+        }
+        return newArray;
+    }
+
+
 
 }
