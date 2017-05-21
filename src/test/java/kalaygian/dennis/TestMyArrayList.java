@@ -410,38 +410,38 @@ public class TestMyArrayList {
         // Then
         Assert.assertEquals("Checking to see if the correct value is returned for a list that is not empty", expected, returnValue);
     }
-//
-//    //contains(Object)
-//    @Test
-//    public void testContains(){
-//        // Given
-//        MyArrayList<Integer> myArrayList = new MyArrayList<Integer>(2);
-//        Integer element1 = 1;
-//        Integer element2 = 2;
-//        myArrayList.set(0, element1);
-//        myArrayList.set(0, element2);
-//        boolean expected = true;
-//        // When
-//        boolean returnValue = myArrayList.contains(element1);
-//        // Then
-//        Assert.assertEquals("Checking to see if the correct value is returned for a match", expected, returnValue);
-//    }
-//
-//    @Test
-//    public void testContains_false(){
-//        // Given
-//        MyArrayList<Integer> myArrayList = new MyArrayList<Integer>(2);
-//        Integer element1 = 1;
-//        Integer element2 = 2;
-//        Integer element3 = 3;
-//        myArrayList.set(0, element1);
-//        myArrayList.set(0, element2);
-//        boolean expected = false;
-//        // When
-//        boolean returnValue = myArrayList.contains(element3);
-//        // Then
-//        Assert.assertEquals("Checking to see if the correct value is returned for no match", expected, returnValue);
-//    }
+
+    //contains(Object)
+    @Test
+    public void testContains(){
+        // Given
+        MyArrayList<Integer> myArrayList = new MyArrayList<Integer>(2);
+        Integer element1 = 1;
+        Integer element2 = 2;
+        myArrayList.set(0, element1);
+        myArrayList.set(1, element2);
+        boolean expected = true;
+        // When
+        boolean returnValue = myArrayList.contains(element1);
+        // Then
+        Assert.assertEquals("Checking to see if the correct value is returned for a match", expected, returnValue);
+    }
+
+    @Test
+    public void testContains_false(){
+        // Given
+        MyArrayList<Integer> myArrayList = new MyArrayList<Integer>(2);
+        Integer element1 = 1;
+        Integer element2 = 2;
+        Integer element3 = 3;
+        myArrayList.set(0, element1);
+        myArrayList.set(1, element2);
+        boolean expected = false;
+        // When
+        boolean returnValue = myArrayList.contains(element3);
+        // Then
+        Assert.assertEquals("Checking to see if the correct value is returned for no match", expected, returnValue);
+    }
 //
 //
 }

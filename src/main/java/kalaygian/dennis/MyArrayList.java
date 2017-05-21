@@ -83,7 +83,7 @@ public class MyArrayList<E> {
         return returnedElement;
     }
 
-    public boolean remove(Object element){
+    public boolean remove(E element){
         for(int index = 0; index < size(); index++){
             if(element.equals(get(index))) return nullifyIndex(index);
         }
@@ -102,13 +102,16 @@ public class MyArrayList<E> {
     }
 
     public boolean isEmpty(){
-        for(int i = 0; i < size(); i++){
-            if(myArray[i] != null) return false;
+        for(int index = 0; index < size(); index++){
+            if(myArray[index] != null) return false;
         }
         return true;
     }
 
-
-
-
+    public boolean contains(E element){
+        for(int index = 0; index < size(); index++){
+            if(myArray[index].equals(element)) return true;
+        }
+        return false;
+    }
 }
