@@ -101,6 +101,13 @@ public class MyArrayList<E> {
         }
     }
 
+    public boolean isEmpty(){
+        for(int i = 0; i < size(); i++){
+            if(myArray[i] != null) return false;
+        }
+        return true;
+    }
+
 
 
 

@@ -375,30 +375,41 @@ public class TestMyArrayList {
             Assert.assertEquals("Checking to see if each item is null", expected, myArrayList.get(i));
         }
     }
-//
-//    // isEmpty()
-//    @Test
-//    public void testIsEmpty(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>();
-//        boolean expected = true;
-//        // When
-//        boolean returnValue = myArrayList.isEmpty();
-//        // Then
-//        Assert.assertEquals("Checking to see if the correct value is returned for an empty list", expected, returnValue);
-//    }
-//
-//    @Test
-//    public void testIsEmpty_listIsNotEmpty(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(1);
-//        myArrayList.set(0, "This is an element");
-//        boolean expected = false;
-//        // When
-//        boolean returnValue = myArrayList.isEmpty();
-//        // Then
-//        Assert.assertEquals("Checking to see if the correct value is returned for a list that is not empty", expected, returnValue);
-//    }
+
+    // isEmpty()
+    @Test
+    public void testIsEmpty(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>();
+        boolean expected = true;
+        // When
+        boolean returnValue = myArrayList.isEmpty();
+        // Then
+        Assert.assertEquals("Checking to see if the correct value is returned for an empty list", expected, returnValue);
+    }
+
+    @Test
+    public void testIsEmpty_accountsForNulls(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(5);
+        boolean expected = true;
+        // When
+        boolean returnValue = myArrayList.isEmpty();
+        // Then
+        Assert.assertEquals("Checking to see if the correct value is returned for a list of nulls", expected, returnValue);
+    }
+
+    @Test
+    public void testIsEmpty_listIsNotEmpty(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(1);
+        myArrayList.set(0, "This is an element");
+        boolean expected = false;
+        // When
+        boolean returnValue = myArrayList.isEmpty();
+        // Then
+        Assert.assertEquals("Checking to see if the correct value is returned for a list that is not empty", expected, returnValue);
+    }
 //
 //    //contains(Object)
 //    @Test
