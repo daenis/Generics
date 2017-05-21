@@ -358,22 +358,23 @@ public class TestMyArrayList {
         // Then
         Assert.assertEquals("Checking to see if the Integer was removed", expected, returnResult);
     }
-//
-//    // clear()
-//    @Test
-//    public void testClear(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
-//        myArrayList.set(0, "This is the first element");
-//        myArrayList.set(1, "This is the second element");
-//        myArrayList.set(2, "This is the third element");
-//        // When
-//        myArrayList.clear();
-//        // Then
-//        for(int i = 0; i < myArrayList.size(); i++){
-//            Assert.assertEquals("Checking to see if each item is null", null, myArrayList.get(i));
-//        }
-//    }
+
+    // clear()
+    @Test
+    public void testClear(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(3);
+        myArrayList.set(0, "This is the first element");
+        myArrayList.set(1, "This is the second element");
+        myArrayList.set(2, "This is the third element");
+        String expected = null;
+        // When
+        myArrayList.clear();
+        // Then
+        for(int i = 0; i < myArrayList.size(); i++){
+            Assert.assertEquals("Checking to see if each item is null", expected, myArrayList.get(i));
+        }
+    }
 //
 //    // isEmpty()
 //    @Test

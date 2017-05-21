@@ -95,6 +95,12 @@ public class MyArrayList<E> {
         return true;
     }
 
+    public void clear(){
+        for(int index = 0; index < size(); index++){
+            myArray[index] = null;
+        }
+    }
+
 
 
 
