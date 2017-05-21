@@ -113,42 +113,42 @@ public class TestMyArrayList {
 //        // This statement will never be reached mwahahahahaha
 //    }
 //
-//    // add(e)
-//    @Test
-//    public void testAddElement_elementAdded(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>();
-//        int expected = 1;
-//        // When
-//        myArrayList.add("I hope that this works");
-//        // Then
-//        Assert.assertEquals("Checking to see if the method added an element", expected, myArrayList.size());
-//    }
-//
-//    @Test
-//    public void testAddElement_correctElementAdded(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>();
-//        String expected = "I hope that this works";
-//        // When
-//        myArrayList.add(expected);
-//        // Then
-//        Assert.assertEquals("Checking to see if the method added an element", expected, myArrayList.get(0));
-//    }
-//
-//    @Test
-//    public void testAddElement_elementAddedToEnd(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
-//        myArrayList.set(0, "This is the first element");
-//        myArrayList.set(1, "This is the second element");
-//        String expected = "This is the third element";
-//        // When
-//        myArrayList.add(expected);
-//        // Then
-//        Assert.assertEquals("Checking to see if the method added an element to the end", expected, myArrayList.get(2));
-//    }
-//
+    // add(e)
+    @Test
+    public void testAddElement_elementAdded(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>();
+        int expected = 1;
+        // When
+        myArrayList.add("I hope that this works");
+        // Then
+        Assert.assertEquals("Checking to see if the method added an element", expected, myArrayList.size());
+    }
+
+    @Test
+    public void testAddElement_correctElementAdded(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>();
+        String expected = "I hope that this works";
+        // When
+        myArrayList.add(expected);
+        // Then
+        Assert.assertEquals("Checking to see if the method added an element", expected, myArrayList.get(0));
+    }
+
+    @Test
+    public void testAddElement_elementAddedToEnd(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(2);
+        myArrayList.set(0, "This is the first element");
+        myArrayList.set(1, "This is the second element");
+        String expected = "This is the third element";
+        // When
+        myArrayList.add(expected);
+        // Then
+        Assert.assertEquals("Checking to see if the method added an element to the end", expected, myArrayList.get(2));
+    }
+
 //    @Test (expected = ClassCastException.class)
 //    public void testAddElement_classCastException(){
 //        // Given
@@ -158,6 +158,18 @@ public class TestMyArrayList {
 //        // Then
 //        // This statement should never be reached
 //    }
+
+    // size()
+    @Test
+    public void testSize(){
+        // Given
+        MyArrayList<String> myArrayList = new MyArrayList<String>(10);
+        int expected = 10;
+        // When
+        int returnValue = myArrayList.size();
+        // Then
+        Assert.assertEquals("Checking to see if the correct value is returned regarding the size", expected, returnValue);
+    }
 //
 //    // add(int, e)
 //    @Test
@@ -220,17 +232,7 @@ public class TestMyArrayList {
 //        Assert.assertEquals("Checking to see if the element caused an appropriate shift", element3, myArrayList.get(2));
 //    }
 //
-//    // size()
-//    @Test
-//    public void testSize(){
-//        // Given
-//        MyArrayList<String> myArrayList = new MyArrayList<String>(10);
-//        int expected = 10;
-//        // When
-//        int returnValue = myArrayList.size();
-//        // Then
-//        Assert.assertEquals("Checking to see if the correct value is returned regarding the size", expected, returnValue);
-//    }
+
 //
 //    // remove(int)
 //    @Test

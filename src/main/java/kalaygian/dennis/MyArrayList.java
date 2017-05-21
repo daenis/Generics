@@ -26,4 +26,22 @@ public class MyArrayList<E> {
         return myArray[index];
     }
 
+    public void add(E element){
+        E[] newArray = growArrayBy(1);
+        newArray[myArray.length] = element;
+        myArray = newArray;
+    }
+
+    private E[] growArrayBy(int size){
+        E[] newArray = (E[]) new Object[myArray.length + size];
+        for(int index = 0; index < myArray.length; index++){
+            newArray[index] = myArray[index];
+        }
+        return newArray;
+    }
+
+    public int size(){
+        return myArray.length;
+    }
+
 }
